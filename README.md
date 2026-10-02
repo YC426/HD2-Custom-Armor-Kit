@@ -3,10 +3,15 @@
 开发源码快照：**2.5.10，尚未完成实际游戏验收，不是稳定发布版。**
 Development snapshot: **2.5.10, in-game acceptance remains incomplete.**
 
+可直接导入管理器的 ZIP 在本地 `dist/Custom-Armor-Kit-2.5.10-dev.zip`，线上在
+[测试 Release](https://github.com/YC426/HD2-Custom-Armor-Kit/releases/tag/v2.5.10-dev.20261002)。
+不要将 GitHub 自动生成的 Source code ZIP 当作模组安装包。
+
 目标：Esc 菜单中的双语护甲卡片编辑、多个不同护甲同时修改、自动发现护甲。
 目前军械库崩溃、真实安全词条上限、动态词条效果、多卡隔离、鼠标拖动及完整
 中英文实机切换仍需验证。11 行只是临时软件限制，不能视为已证明的安全上限。
-源码保留受 `development.enable` 控制的开发驱动；它不是发布功能，稳定包须移除。
+源码保留受 `development.enable` 控制的开发驱动供本地诊断；构建工具会从安装包中
+剥离该驱动及 tooltip 探针，并重新编译、审计实际封装的 Lua。
 
 ## Local validation / 本地检查
 

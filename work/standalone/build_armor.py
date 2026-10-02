@@ -44,6 +44,10 @@ settings = (
     f'ZIP = os.path.join(OUT, "Custom-Armor-Kit-{VERSION}.zip")\n'
 )
 text = template[:start] + settings + template[end:]
+text = text.replace('lupa.LuaRuntime().compile(source)',
+                    'from prepare_public_source import prepare\n'
+                    'source = prepare(source)\n'
+                    'lupa.LuaRuntime().compile(source)')
 text = text.replace('comp_src = slice_src(', 'comp_src = "local RT={}\\n" + slice_src(')
 text = text.replace('comp2_src = slice_src(', 'comp2_src = "local RT={}\\n" + slice_src(')
 text = text.replace('import build_addon as official',
@@ -79,6 +83,7 @@ if not args.validate_only:
             'work/standalone/multi_perk.lua', 'work/standalone/zh_data.lua',
             'work/standalone/ship_visibility.lua', 'work/standalone/build_armor.py',
             'work/standalone/build255.py', 'work/standalone/ffi_audit.py',
+            'work/standalone/prepare_public_source.py',
             'work/standalone/safe_deploy.py', 'work/standalone/simtest.py',
             'work/standalone/test_armor_regressions.py', 'work/standalone/test_armor_ui.py',
             'work/standalone/test_ship_visibility.py', 'work/fork/foundation.lua',
